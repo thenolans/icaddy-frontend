@@ -3,13 +3,12 @@ import React from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 
-import "./login.scss";
 import Button from "../Button";
-import Card from "../Card";
 import FormError from "../FormError";
 import Input from "../Input";
+import LoginRegisterLayout from "../LoginRegisterLayout";
 
-const Login = () => {
+const LoginForm = () => {
   const { errors, handleChange, handleSubmit, values } = useFormik({
     initialValues: {
       email: "",
@@ -39,35 +38,31 @@ const Login = () => {
   });
 
   return (
-    <div className="login d-flex justify-content-center align-items-center p-3">
-      <div className="login__form">
-        <Card className="p-4">
-          <form onSubmit={handleSubmit}>
-            <div className="mb-3">
-              <Input
-                name="email"
-                onChange={handleChange}
-                placeholder="Email"
-                value={values.email}
-              />
-              {errors.email && <FormError>{errors.email}</FormError>}
-            </div>
-            <div className="mb-3">
-              <Input
-                name="password"
-                onChange={handleChange}
-                placeholder="Password"
-                value={values.password}
-                type="password"
-              />
-              {errors.password && <FormError>{errors.password}</FormError>}
-            </div>
-            <Button type="submit">Log In</Button>
-          </form>
-        </Card>
-      </div>
-    </div>
+    <LoginRegisterLayout>
+      <form onSubmit={handleSubmit}>
+        <div className="mb-3">
+          <Input
+            name="email"
+            onChange={handleChange}
+            placeholder="Email"
+            value={values.email}
+          />
+          {errors.email && <FormError>{errors.email}</FormError>}
+        </div>
+        <div className="mb-3">
+          <Input
+            name="password"
+            onChange={handleChange}
+            placeholder="Password"
+            value={values.password}
+            type="password"
+          />
+          {errors.password && <FormError>{errors.password}</FormError>}
+        </div>
+        <Button type="submit">Log In</Button>
+      </form>
+    </LoginRegisterLayout>
   );
 };
 
-export default Login;
+export default LoginForm;

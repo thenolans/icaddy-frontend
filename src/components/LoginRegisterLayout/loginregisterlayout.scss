@@ -1,6 +1,6 @@
 @import "../../scss/variables";
 
-.login {
+.layout {
   position: absolute;
   top: 0;
   left: 0;
@@ -8,11 +8,11 @@
   height: 100%;
   background-image: -webkit-linear-gradient(
     -45deg,
-    $cloudy-sky 50%,
-    $fairway-green 50%
+    $color-gray-lighten-75 50%,
+    $color-primary-base 50%
   );
 
-  &__form {
+  &__content {
     max-width: 360px;
     width: 100%;
   }

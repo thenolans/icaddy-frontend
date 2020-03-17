@@ -1,11 +1,11 @@
 import React from "react";
 
-import Login from "./components/Login";
+import RegistrationForm from "./components/RegistrationForm";
 
 const App = () => {
   return (
     <div>
-      <Login />
+      <RegistrationForm />
     </div>
   );
 };
