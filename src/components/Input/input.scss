@@ -1,0 +1,17 @@
+@import "../../scss/variables";
+
+.input {
+  width: 100%;
+  height: 40px;
+  line-height: 40px;
+  padding: 0 $spacer-3;
+  border: solid 2px $color-gray-lighten-75;
+  background-color: $color-gray-lighten-75;
+  border-radius: $spacer-1;
+  outline: none;
+  color: $color-gray-base;
+
+  &:focus {
+    border-color: $color-primary-base;
+  }
+}
