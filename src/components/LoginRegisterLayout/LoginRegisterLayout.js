@@ -1,6 +1,6 @@
 import React from "react";
 
-import "./loginregisterlayout.scss";
+import "./loginRegisterLayout.scss";
 import Card from "../Card";
 
 const LoginRegisterLayout = props => {
