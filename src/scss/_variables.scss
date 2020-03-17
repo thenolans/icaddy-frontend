@@ -1,0 +1,20 @@
+$spacer: 1rem !default;
+$spacer-1: $spacer * 0.25;
+$spacer-2: $spacer * 5;
+$spacer-3: $spacer;
+$spacer-4: $spacer * 1.5;
+$spacer-5: $spacer * 3;
+
+// DO NOT USE
+$cloudy-sky: #f8f8f8;
+$fairway-green: #4e7a3c;
+$flag-red: #d33131;
+
+// USE THESE
+$color-gray-base: #333333;
+$color-gray-lighten-75: lighten($color-gray-base, 75%);
+
+$color-primary-base: #4e7a3c;
+$color-primary-darken-10: darken($color-primary-base, 10%);
+
+$color-danger-base: #d33131;
