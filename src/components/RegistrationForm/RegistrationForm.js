@@ -1,4 +1,3 @@
-import axios from "axios";
 import React, { useContext } from "react";
 import { useFormik } from "formik";
 import { Link } from "react-router-dom";
@@ -6,6 +5,7 @@ import * as Yup from "yup";
 
 import Button from "../Button";
 import FormError from "../FormError";
+import http from "../../utils/http";
 import Input from "../Input";
 import LoginRegisterLayout from "../LoginRegisterLayout";
 import TokenContext from "../../contexts/token";
@@ -20,7 +20,7 @@ const RegistrationForm = props => {
     },
     onSubmit: async (values, { setErrors }) => {
       try {
-        const response = await axios.post("http://localhost:3090/register", {
+        const response = await http.post("/register", {
           email: values.email,
           password: values.password
         });
