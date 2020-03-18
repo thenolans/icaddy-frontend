@@ -1,5 +1,5 @@
 import axios from "axios";
-import React from "react";
+import React, { useContext } from "react";
 import { useFormik } from "formik";
 import { Link } from "react-router-dom";
 import * as Yup from "yup";
@@ -8,8 +8,10 @@ import Button from "../Button";
 import FormError from "../FormError";
 import Input from "../Input";
 import LoginRegisterLayout from "../LoginRegisterLayout";
+import TokenContext from "../../contexts/token";
 
-const LoginForm = () => {
+const LoginForm = props => {
+  const { setToken } = useContext(TokenContext);
   const { errors, handleChange, handleSubmit, values } = useFormik({
     initialValues: {
       email: "",
@@ -21,7 +23,9 @@ const LoginForm = () => {
           email: values.email,
           password: values.password
         });
-        console.log(response.data.token);
+        localStorage.setItem("token", response.data.token);
+        setToken(response.data.token);
+        props.history.push("/");
       } catch {
         setErrors({
           password:
