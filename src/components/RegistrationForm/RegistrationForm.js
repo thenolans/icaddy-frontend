@@ -84,7 +84,7 @@ const RegistrationForm = () => {
         <Button type="submit">Register</Button>
       </form>
       <Link className="link text-center mt-3" to="/login">
-        Already have an account? Log in
+        Already have an account? Log in{" "}
       </Link>
     </LoginRegisterLayout>
   );

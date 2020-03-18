@@ -62,7 +62,6 @@ const LoginForm = () => {
         </div>
         <Button type="submit">Log In</Button>
       </form>
-
       <Link className="link text-center mt-3" to="/register">
         Don't have an account? Sign up
       </Link>
