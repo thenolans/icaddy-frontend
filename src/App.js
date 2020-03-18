@@ -5,6 +5,7 @@ import Dashboard from "./components/Dashboard";
 import LoginForm from "./components/LoginForm";
 import ProtectedRoute from "./components/ProtectedRoute";
 import RegistrationForm from "./components/RegistrationForm";
+import ShotForm from "./components/ShotForm";
 import { TokenProvider } from "./contexts/token";
 
 const App = () => {
@@ -15,6 +16,7 @@ const App = () => {
           <ProtectedRoute exact path="/" component={Dashboard} />
           <Route path="/register" component={RegistrationForm} />
           <Route path="/login" component={LoginForm} />
+          <Route path="/log-shot" component={ShotForm} />
         </Switch>
       </Router>
     </TokenProvider>
