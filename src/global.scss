@@ -4,3 +4,10 @@ body {
   background-color: $color-gray-lighten-75;
   font-family: "Nunito";
 }
+
+.link {
+  color: $color-primary-base;
+  &:hover {
+    color: darken($color-primary-base, 10%);
+  }
+}

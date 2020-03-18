@@ -1,6 +1,7 @@
 import axios from "axios";
 import React from "react";
 import { useFormik } from "formik";
+import { Link } from "react-router-dom";
 import * as Yup from "yup";
 
 import Button from "../Button";
@@ -61,6 +62,10 @@ const LoginForm = () => {
         </div>
         <Button type="submit">Log In</Button>
       </form>
+
+      <Link className="link text-center mt-3" to="/register">
+        Don't have an account? Sign up
+      </Link>
     </LoginRegisterLayout>
   );
 };
