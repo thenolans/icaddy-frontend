@@ -1,0 +1,14 @@
+@import "../../scss/variables";
+
+.layout {
+  &__top-banner {
+    background-color: $color-primary-base;
+    color: $color-gray-lighten-75;
+    height: 200px;
+  }
+
+  &__content {
+    max-width: 600px;
+    margin: -60px auto 0 auto;
+  }
+}
