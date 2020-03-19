@@ -1,17 +1,25 @@
 import React from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
-import RegistrationForm from "./components/RegistrationForm";
+import Dashboard from "./components/Dashboard";
 import LoginForm from "./components/LoginForm";
+import ProtectedRoute from "./components/ProtectedRoute";
+import RegistrationForm from "./components/RegistrationForm";
+import ShotForm from "./components/ShotForm";
+import { TokenProvider } from "./contexts/token";
 
 const App = () => {
   return (
-    <Router>
-      <Switch>
-        <Route path="/register" component={RegistrationForm} />
-        <Route path="/login" component={LoginForm} />
-      </Switch>
-    </Router>
+    <TokenProvider>
+      <Router>
+        <Switch>
+          <ProtectedRoute exact path="/" component={Dashboard} />
+          <Route path="/register" component={RegistrationForm} />
+          <Route path="/login" component={LoginForm} />
+          <Route path="/log-shot" component={ShotForm} />
+        </Switch>
+      </Router>
+    </TokenProvider>
   );
 };
 

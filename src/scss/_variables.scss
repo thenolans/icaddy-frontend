@@ -1,6 +1,6 @@
 $spacer: 1rem !default;
 $spacer-1: $spacer * 0.25;
-$spacer-2: $spacer * 5;
+$spacer-2: $spacer * 0.5;
 $spacer-3: $spacer;
 $spacer-4: $spacer * 1.5;
 $spacer-5: $spacer * 3;
@@ -8,7 +8,10 @@ $spacer-5: $spacer * 3;
 $color-gray-base: #333333;
 $color-gray-lighten-75: lighten($color-gray-base, 75%);
 
-$color-primary-base: #4e7a3c;
+$color-primary-base: #6eba7e;
 $color-primary-darken-10: darken($color-primary-base, 10%);
 
 $color-danger-base: #d33131;
+
+$color-secondary-base: #3f456b;
+$color-secondary-lighten-50: lighten($color-secondary-base, 50%);
