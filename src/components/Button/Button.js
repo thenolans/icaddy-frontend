@@ -3,8 +3,20 @@ import React from "react";
 
 import "./button.scss";
 
-const Button = ({ className, type = "button", ...props }) => {
-  return <button className={cx("button", className)} type={type} {...props} />;
+const Button = ({
+  as: T = "button",
+  className,
+  fluid,
+  type = "button",
+  ...props
+}) => {
+  return (
+    <T
+      className={cx("button", { "button--fluid": fluid }, className)}
+      type={type}
+      {...props}
+    />
+  );
 };
 
 export default Button;

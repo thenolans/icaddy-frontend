@@ -64,7 +64,9 @@ const LoginForm = props => {
           />
           {errors.password && <FormError>{errors.password}</FormError>}
         </div>
-        <Button type="submit">Log In</Button>
+        <Button fluid type="submit">
+          Log In
+        </Button>
       </form>
       <Link className="link text-center mt-3" to="/register">
         Don't have an account? Sign up

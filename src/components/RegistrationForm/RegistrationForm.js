@@ -85,7 +85,9 @@ const RegistrationForm = props => {
             <FormError>{errors.confirmPassword}</FormError>
           )}
         </div>
-        <Button type="submit">Register</Button>
+        <Button fluid type="submit">
+          Register
+        </Button>
       </form>
       <Link className="link text-center mt-3" to="/login">
         Already have an account? Log in{" "}

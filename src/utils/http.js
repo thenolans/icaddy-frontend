@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const http = axios.create({ baseURL: "http://localhost:3090" });
+const http = axios.create({ baseURL: "https://icaddy-dev.herokuapp.com" });
 
 http.interceptors.request.use(
   config => {
