@@ -4,6 +4,7 @@ import * as Yup from "yup";
 
 import Button from "../Button";
 import Card from "../Card";
+import CLUBS from "../../constants/clubs";
 import FormError from "../FormError";
 import http from "../../utils/http";
 import Input from "../Input";
@@ -14,21 +15,10 @@ import Select from "../Select";
 const ShotForm = props => {
   const [isLoading, setIsLoading] = useState(false);
 
-  const options = [
-    { value: "4", label: "4 Iron" },
-    { value: "5", label: "5 Iron" },
-    { value: "6", label: "6 Iron" },
-    { value: "7", label: "7 Iron" },
-    { value: "8", label: "8 Iron" },
-    { value: "9", label: "9 Iron" },
-    { value: "PW", label: "Pitching Wedge" }
-  ];
-
   const {
     errors,
     handleChange,
     handleSubmit,
-    touched,
     setFieldValue,
     values
   } = useFormik({
@@ -41,7 +31,10 @@ const ShotForm = props => {
         await http.post("/shots", { ...values, club: values.club.value });
         setIsLoading(true);
         props.history.push("/");
-      } catch {}
+      } catch {
+      } finally {
+        setIsLoading(false);
+      }
     },
     validateOnChange: false,
     validationSchema: Yup.object({
@@ -67,9 +60,8 @@ const ShotForm = props => {
               onChange={club => {
                 setFieldValue("club", club);
               }}
-              options={options}
+              options={CLUBS}
               placeholder="Select a club"
-              touched={touched.topics}
               value={values.club}
             />
             {errors.club && <FormError>{errors.club}</FormError>}
