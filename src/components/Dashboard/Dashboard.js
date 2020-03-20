@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import "./dashboard.scss";
 import Button from "../Button";
 import Card from "../Card";
+import Container from "../Container";
 import GolfFlag from "../../images/golf-flag.svg";
 import Heading from "../Heading";
 import http from "../../utils/http";
@@ -73,7 +74,14 @@ const Dashboard = className => {
 
   return (
     <Layout>
-      <Card>{renderContent()}</Card>
+      <div className="pb-4 mb-5">
+        <Card>{renderContent()}</Card>
+      </div>
+      <Container className="pb-4 fixed-bottom">
+        <Button as={Link} to="/log-shot" fluid shadow>
+          Log shot
+        </Button>
+      </Container>
     </Layout>
   );
 };
