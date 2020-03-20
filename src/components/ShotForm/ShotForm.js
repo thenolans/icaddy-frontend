@@ -1,61 +1,85 @@
-import React from "react";
+import React, { useState } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 
 import Button from "../Button";
 import Card from "../Card";
+import CLUBS from "../../constants/clubs";
 import FormError from "../FormError";
 import http from "../../utils/http";
 import Input from "../Input";
 import Layout from "../Layout";
+import Loader from "../Loader";
+import Select from "../Select";
 
 const ShotForm = props => {
-  const { errors, handleChange, handleSubmit, values } = useFormik({
+  const [isLoading, setIsLoading] = useState(false);
+
+  const {
+    errors,
+    handleChange,
+    handleSubmit,
+    setFieldValue,
+    values
+  } = useFormik({
     initialValues: {
-      club: "",
+      club: null,
       distance: ""
     },
     onSubmit: async values => {
       try {
-        await http.post("/shots", values);
+        await http.post("/shots", { ...values, club: values.club.value });
+        setIsLoading(true);
         props.history.push("/");
-      } catch {}
+      } catch {
+      } finally {
+        setIsLoading(false);
+      }
     },
     validateOnChange: false,
     validationSchema: Yup.object({
-      club: Yup.string().required("Please select a club"),
-      distance: Yup.number().required("Number is required")
+      club: Yup.mixed().required("Please select a club"),
+      distance: Yup.number().required("Please enter a distance")
     })
   });
+
+  if (isLoading)
+    return (
+      <div className="d-flex justify-content-center">
+        <Loader />
+      </div>
+    );
+
   return (
     <Layout>
       <Card className="p-4">
         <form onSubmit={handleSubmit}>
-          <select name="club" onChange={handleChange}>
-            <option value="" disabled selected>
-              Select a club
-            </option>
-            <option value="4">4 Iron</option>
-            <option value="5">5 Iron</option>
-            <option value="6">6 Iron</option>
-            <option value="7">7 Iron</option>
-            <option value="8">8 Iron</option>
-            <option value="9">9 Iron</option>
-            <option value="PW">Pitching Wedge</option>
-          </select>
-          <div>{errors.club && <FormError>{errors.club}</FormError>}</div>
+          <div className="mb-3">
+            <Select
+              name="club"
+              onChange={club => {
+                setFieldValue("club", club);
+              }}
+              options={CLUBS}
+              placeholder="Select a club"
+              value={values.club}
+            />
+            {errors.club && <FormError>{errors.club}</FormError>}
+          </div>
 
-          <Input
-            name="distance"
-            onChange={handleChange}
-            placeholder="Distance"
-            type="number"
-            value={values.distance}
-          />
-          <div>
+          <div className="mb-3">
+            <Input
+              name="distance"
+              onChange={handleChange}
+              placeholder="Distance"
+              type="number"
+              value={values.distance}
+            />
             {errors.distance && <FormError>{errors.distance}</FormError>}
           </div>
-          <Button type="submit">Save</Button>
+          <Button fluid type="submit">
+            Save
+          </Button>
         </form>
       </Card>
     </Layout>
