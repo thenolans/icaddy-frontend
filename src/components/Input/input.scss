@@ -7,11 +7,15 @@
   padding: 0 $spacer-3;
   border: solid 2px $color-gray-lighten-75;
   background-color: $color-gray-lighten-75;
-  border-radius: $spacer-1;
+  border-radius: $spacer-2;
   outline: none;
   color: $color-gray-base;
 
   &:focus {
-    border-color: $color-primary-base;
+    border-color: $color-primary-base !important;
+  }
+
+  &:hover {
+    border-color: $color-gray-lighten-50;
   }
 }

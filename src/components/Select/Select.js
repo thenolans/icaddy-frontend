@@ -3,44 +3,52 @@ import Select from "react-select";
 
 const SelectStyled = props => {
   const colorPrimaryBase = "#6eba7e";
-  const colorGrayLighten = "#f2f2f2";
-  const textColor = "#757575";
+  const colorGrayLighten75 = "#f2f2f2";
+  const colorPlaceholder = "#757575";
+  const colorGrayLighten50 = "#b3b3b3";
 
   const customStyles = {
     option: (provided, { isFocused, isSelected }) => ({
-      ...provided,
       color: isSelected
-        ? colorGrayLighten
+        ? colorGrayLighten75
         : isFocused
-        ? colorGrayLighten
-        : textColor,
+        ? colorPrimaryBase
+        : "inherit",
+      backgroundColor: isSelected ? colorPrimaryBase : "inherit",
       "&:hover": {
         backgroundColor: colorPrimaryBase,
-        color: colorGrayLighten
+        color: colorGrayLighten75
       },
       "&:active": {
         backgroundColor: colorPrimaryBase,
-        color: colorGrayLighten
-      }
+        color: colorGrayLighten75
+      },
+      padding: 16
     }),
     control: (provided, { isSelected, isFocused }) => ({
       ...provided,
       paddingLeft: 8,
       height: 54,
-      border: isSelected
-        ? "solid 2px colorPrimaryBase"
-        : isFocused
-        ? "solid 2px colorPrimaryBase"
-        : "none"
+      borderRadius: 8,
+      border:
+        isSelected || isFocused
+          ? `solid 2px ${colorPrimaryBase}`
+          : "solid 2px transparent",
+      "&:hover": {
+        borderColor: colorGrayLighten50
+      },
+      boxShadow: "none"
     }),
+
     placeholder: provided => ({
       ...provided,
-      color: textColor
+      color: colorPlaceholder
     })
   };
 
   return (
     <Select
+      isSearchable={false}
       styles={customStyles}
       theme={theme => ({
         ...theme,
@@ -48,7 +56,7 @@ const SelectStyled = props => {
           ...theme.colors,
           primary25: colorPrimaryBase,
           primary: colorPrimaryBase,
-          neutral0: colorGrayLighten
+          neutral0: colorGrayLighten75
         }
       })}
       {...props}
