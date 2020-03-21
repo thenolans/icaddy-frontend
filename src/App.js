@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import Dashboard from "./components/Dashboard";
 import LoginForm from "./components/LoginForm";
+import Logout from "./components/Logout";
 import ProtectedRoute from "./components/ProtectedRoute";
 import RegistrationForm from "./components/RegistrationForm";
 import ShotForm from "./components/ShotForm";
@@ -17,6 +18,7 @@ const App = () => {
           <Route path="/register" component={RegistrationForm} />
           <Route path="/login" component={LoginForm} />
           <Route path="/log-shot" component={ShotForm} />
+          <Route path="/logout" component={Logout} />
         </Switch>
       </Router>
     </TokenProvider>
