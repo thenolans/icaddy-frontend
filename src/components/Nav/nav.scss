@@ -1,0 +1,13 @@
+@import "../../scss/variables";
+
+.nav__link {
+  color: white;
+  padding: $spacer-2 $spacer-3;
+  border-radius: 20px;
+
+  &--active,
+  &:hover {
+    background-color: $color-primary-lighten-10;
+    color: inherit;
+  }
+}
