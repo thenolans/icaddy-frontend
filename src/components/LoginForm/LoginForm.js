@@ -11,7 +11,7 @@ import LoginRegisterLayout from "../LoginRegisterLayout";
 import TokenContext from "../../contexts/token";
 
 const LoginForm = props => {
-  const { setToken } = useContext(TokenContext);
+  const { token, setToken } = useContext(TokenContext);
 
   const { errors, handleChange, handleSubmit, values } = useFormik({
     initialValues: {
@@ -43,7 +43,7 @@ const LoginForm = props => {
     })
   });
 
-  if (localStorage.length > 0) {
+  if (token) {
     return <Redirect to="/" />;
   }
 

@@ -11,7 +11,7 @@ import LoginRegisterLayout from "../LoginRegisterLayout";
 import TokenContext from "../../contexts/token";
 
 const RegistrationForm = props => {
-  const { setToken } = useContext(TokenContext);
+  const { token, setToken } = useContext(TokenContext);
   const { errors, handleChange, handleSubmit, values } = useFormik({
     initialValues: {
       email: "",
@@ -51,7 +51,7 @@ const RegistrationForm = props => {
     })
   });
 
-  if (localStorage.length > 0) {
+  if (token) {
     return <Redirect to="/" />;
   }
 
