@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { useFormik } from "formik";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import * as Yup from "yup";
 
 import Button from "../Button";
@@ -50,6 +50,10 @@ const RegistrationForm = props => {
       })
     })
   });
+
+  if (localStorage.length > 0) {
+    return <Redirect to="/" />;
+  }
 
   return (
     <LoginRegisterLayout>
