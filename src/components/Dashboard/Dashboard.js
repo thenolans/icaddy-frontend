@@ -73,7 +73,7 @@ const Dashboard = className => {
   };
 
   const renderButton = () => {
-    if (shots?.length)
+    if (shots?.length && !isLoading)
       return (
         <Button as={Link} to="/log-shot" fluid shadow>
           Log shot
