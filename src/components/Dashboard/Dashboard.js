@@ -19,7 +19,7 @@ const fetchShotAverages = () => http.get("/shots/aggregate");
 const Dashboard = className => {
   const [shotAverages = {}, { isLoading }] = useAsyncState(fetchShotAverages);
   const shots = shotAverages?.data?.data;
-  const hasShotsLogged = !shots?.length && !isLoading;
+  const hasShotsLogged = !!shots?.length && !isLoading;
 
   const renderContent = () => {
     if (isLoading)
@@ -28,7 +28,7 @@ const Dashboard = className => {
           <Loader />
         </div>
       );
-    if (hasShotsLogged) {
+    if (!hasShotsLogged) {
       return (
         <div className="text-center mt-3 p-4 p-md-5">
           <img
@@ -79,7 +79,7 @@ const Dashboard = className => {
         <Card>{renderContent()}</Card>
       </div>
       <Container className="pb-4 fixed-bottom">
-        {!hasShotsLogged && (
+        {hasShotsLogged && (
           <Button as={Link} to="/log-shot" fluid shadow>
             Log shot
           </Button>
