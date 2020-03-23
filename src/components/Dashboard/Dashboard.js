@@ -72,21 +72,18 @@ const Dashboard = className => {
     });
   };
 
-  const renderButton = () => {
-    if (shots?.length && !isLoading)
-      return (
-        <Button as={Link} to="/log-shot" fluid shadow>
-          Log shot
-        </Button>
-      );
-  };
-
   return (
     <Layout>
       <div className="pb-4 mb-5">
         <Card>{renderContent()}</Card>
       </div>
-      <Container className="pb-4 fixed-bottom">{renderButton()}</Container>
+      <Container className="pb-4 fixed-bottom">
+        {!!shots?.length && !isLoading && (
+          <Button as={Link} to="/log-shot" fluid shadow>
+            Log shot
+          </Button>
+        )}
+      </Container>
     </Layout>
   );
 };
