@@ -1,68 +1,52 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+#iCaddy
 
-## Available Scripts
+My husband and I enjoy playing golf.To become better golfers, we began writing down which club we use and how far we hit the ball. This information allows us to pick the best club for the hole based on the way we hit. The problem is we had to take time away from playing to average our shots.
 
-In the project directory, you can run:
+My husband and I decided to create an application that could handle the math for us. So all we had to do was log our shots. My husband focused on the back-end while I focused on the front-end.
 
-### `yarn start`
+The application allows users to input a shot by selecting what club they used and what distance that they hit the ball. The application will return the average distance for that specific club.
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+#### Login and Register
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+I used the library Formik and Yup in all of the forms in the application. Formik handles the state of the form and handles the form submission. Yup handles the form validation.
 
-### `yarn test`
+I created a form that will allow users to create a new account or log in to an existing account. The server will provide the client with a web token. We store that token to local storage and pass the token using useContext.
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+I also utilized axios (promise basedHTTP client for the browser) which allowed me to intercept the request and add the client's token to grant the user access.
 
-### `yarn build`
+I don't like visiting websites that make me log in every time the page refreshes. To prevent this, I saved the token to local storage.
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+<img src="https://user-images.githubusercontent.com/54158919/77349965-34bf1b80-6d12-11ea-8b95-93d088a7250b.png">
+<img src="https://user-images.githubusercontent.com/54158919/77350020-499baf00-6d12-11ea-8f48-ae5f6e369184.png">
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+#### Dashboard
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+By saving the user's token to local storage when they login or create an account, I am able to redirect users to the dashboard if they already have a valid token.
 
-### `yarn eject`
+I used React-Router (React routing library) to handle the redirects and to allow me to build custom routes.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+A user can have two different views once they are on the dashboard page. The first view is for users that do not have any shots logged.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+<img  src="https://user-images.githubusercontent.com/54158919/77350127-6df78b80-6d12-11ea-9fef-38f9e3636162.png">
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+The second view is for users that have logged shots. The users will see a list of their clubs and the average next to their club.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+<img src="https://user-images.githubusercontent.com/54158919/77350302-aac38280-6d12-11ea-85bf-733d8c9f192c.png">
 
-## Learn More
+Users can easily log a shot from both views, by clicking the log shot button.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+#### Log a Shot
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+To create the log shot form, I utilized React-Select to create and style the drop down menu, as well as Formik and Yup.
 
-### Code Splitting
+<img src="https://user-images.githubusercontent.com/54158919/77350661-3c32f480-6d13-11ea-8bc0-d6e98ef02bb1.png">
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+---
 
-### Analyzing the Bundle Size
+I wanted to learn some new skills while building this application. I decided to add scss in the application as well as bootstrap for styling. Working with custom hooks.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+## Setup Instructions
 
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+1. Clone this repository.
+2. Install dependencies with `yarn install`
+3. Start app with `yarn start`
