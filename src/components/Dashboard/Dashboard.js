@@ -1,5 +1,5 @@
 import cx from "classnames";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 
 import "./dashboard.scss";
@@ -18,18 +18,9 @@ const fetchShotAverages = () => http.get("/shots/aggregate");
 
 const Dashboard = className => {
   const [shotAverages = {}, { isLoading }] = useAsyncState(fetchShotAverages);
-  const [isButtonShowing, setButtonShowing] = useState(false);
-
-  useEffect(() => {
-    if (!shotAverages?.data?.data?.length) {
-      setButtonShowing(false);
-    } else {
-      setButtonShowing(true);
-    }
-  }, [shotAverages]); // eslint-disable-line react-hooks/exhaustive-deps
+  const shots = shotAverages?.data?.data;
 
   const renderContent = () => {
-    const shots = shotAverages?.data?.data;
     if (isLoading)
       return (
         <div className="d-flex justify-content-center">
@@ -81,18 +72,21 @@ const Dashboard = className => {
     });
   };
 
+  const renderButton = () => {
+    if (shots?.length)
+      return (
+        <Button as={Link} to="/log-shot" fluid shadow>
+          Log shot
+        </Button>
+      );
+  };
+
   return (
     <Layout>
       <div className="pb-4 mb-5">
         <Card>{renderContent()}</Card>
       </div>
-      <Container className="pb-4 fixed-bottom">
-        {isButtonShowing && (
-          <Button as={Link} to="/log-shot" fluid shadow>
-            Log shot
-          </Button>
-        )}
-      </Container>
+      <Container className="pb-4 fixed-bottom">{renderButton()}</Container>
     </Layout>
   );
 };
