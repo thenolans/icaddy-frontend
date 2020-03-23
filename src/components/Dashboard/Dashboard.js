@@ -1,5 +1,5 @@
 import cx from "classnames";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 import "./dashboard.scss";
@@ -18,6 +18,15 @@ const fetchShotAverages = () => http.get("/shots/aggregate");
 
 const Dashboard = className => {
   const [shotAverages = {}, { isLoading }] = useAsyncState(fetchShotAverages);
+  const [isButtonShowing, setButtonShowing] = useState(false);
+
+  useEffect(() => {
+    if (!shotAverages?.data?.data?.length) {
+      setButtonShowing(false);
+    } else {
+      setButtonShowing(true);
+    }
+  }, [shotAverages]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const renderContent = () => {
     const shots = shotAverages?.data?.data;
@@ -78,9 +87,11 @@ const Dashboard = className => {
         <Card>{renderContent()}</Card>
       </div>
       <Container className="pb-4 fixed-bottom">
-        <Button as={Link} to="/log-shot" fluid shadow>
-          Log shot
-        </Button>
+        {isButtonShowing && (
+          <Button as={Link} to="/log-shot" fluid shadow>
+            Log shot
+          </Button>
+        )}
       </Container>
     </Layout>
   );
