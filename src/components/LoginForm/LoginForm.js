@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { useFormik } from "formik";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import * as Yup from "yup";
 
 import Button from "../Button";
@@ -11,7 +11,8 @@ import LoginRegisterLayout from "../LoginRegisterLayout";
 import TokenContext from "../../contexts/token";
 
 const LoginForm = props => {
-  const { setToken } = useContext(TokenContext);
+  const { token, setToken } = useContext(TokenContext);
+
   const { errors, handleChange, handleSubmit, values } = useFormik({
     initialValues: {
       email: "",
@@ -41,6 +42,10 @@ const LoginForm = props => {
       password: Yup.string().required(" Password is required")
     })
   });
+
+  if (token) {
+    return <Redirect to="/" />;
+  }
 
   return (
     <LoginRegisterLayout>
