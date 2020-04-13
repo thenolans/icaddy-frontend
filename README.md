@@ -37,3 +37,5 @@ The application allows users to input a shot by selecting what club they used an
 1. Clone this repository.
 2. Install dependencies with `yarn install`
 3. Start app with `yarn start`
+4. Create an account
+5. Log shots and view averages
