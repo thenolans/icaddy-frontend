@@ -10,7 +10,7 @@ The application allows users to input a shot by selecting what club they used an
 - Utilized `react-select` to create and style dropdown menu
 - Worked with `scss` and `bootstrap` for styling
 
-<div align="center">
+<div align="center" padding="5">
 
 <img  width="150" height="230" alt="log in screen" src="https://user-images.githubusercontent.com/54158919/79132927-27c5a300-7d79-11ea-82ae-69eae3481cfb.png">
 
