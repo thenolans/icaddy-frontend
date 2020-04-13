@@ -2,23 +2,23 @@
 
 The application allows users to input a shot by selecting what club they used and what distance that they hit the ball. The application will return the average distance for that specific club.
 
-- Utilized Formik and Yup to handle validation and submission
+- Utilized `formik` and `yup` to handle validation and submission
 - Worked with JSON web tokens to handle user authentication
-- Utilized Axios which would allow me to intercept requests and add the user's web token to grant user access
-- Redirect users to dashboard from the log in page if they have a valid token/
-- Utilized React Router to manage various pages of the application and handle redirects
-- Utilized React-Select to create and style dropdown menu
-- Scss and bootstrap for styling
+- Utilized `axios` which would allow me to intercept requests and add the user's web token to grant user access
+- Redirect users to dashboard from the log in page if they have a valid token
+- Utilized `react-router` to manage various pages of the application and handle redirects
+- Utilized `react-select` to create and style dropdown menu
+- Worked with `scss` and `bootstrap` for styling
 
-<img src="https://user-images.githubusercontent.com/54158919/77349965-34bf1b80-6d12-11ea-8b95-93d088a7250b.png">
+<img width="150" height="230" alt="log in screen" src="https://user-images.githubusercontent.com/54158919/79132927-27c5a300-7d79-11ea-82ae-69eae3481cfb.png">
 
-<img src="https://user-images.githubusercontent.com/54158919/77350020-499baf00-6d12-11ea-8f48-ae5f6e369184.png">
+<img width="150" height="230" alt="register screen"  src="https://user-images.githubusercontent.com/54158919/79132402-44ada680-7d78-11ea-975e-9e7668b9359e.png">
 
-<img  src="https://user-images.githubusercontent.com/54158919/77350127-6df78b80-6d12-11ea-9fef-38f9e3636162.png">
+<img width="150" height="230" src="https://user-images.githubusercontent.com/54158919/79132526-79b9f900-7d78-11ea-9429-00324117c8e6.png">
 
-<img src="https://user-images.githubusercontent.com/54158919/77350661-3c32f480-6d13-11ea-8bc0-d6e98ef02bb1.png">
+<img width="150" height="230" alt="log a shot screen"  src="https://user-images.githubusercontent.com/54158919/79132569-91917d00-7d78-11ea-8bbb-a80972c89b40.png">
 
-<img src="https://user-images.githubusercontent.com/54158919/77350302-aac38280-6d12-11ea-85bf-733d8c9f192c.png">
+<img width="150" height="230" alt="dashboard"  src="https://user-images.githubusercontent.com/54158919/79132591-9c4c1200-7d78-11ea-8d40-62f0fe2e2ad5.png">
 
 ## Setup Instructions
 
