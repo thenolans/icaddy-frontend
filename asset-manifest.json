@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/icaddy-frontend/static/css/main.62293e9a.chunk.css",
+    "main.js": "/icaddy-frontend/static/js/main.89c0db2d.chunk.js",
+    "main.js.map": "/icaddy-frontend/static/js/main.89c0db2d.chunk.js.map",
+    "runtime-main.js": "/icaddy-frontend/static/js/runtime-main.c7e62304.js",
+    "runtime-main.js.map": "/icaddy-frontend/static/js/runtime-main.c7e62304.js.map",
+    "static/js/2.dbd0b1a4.chunk.js": "/icaddy-frontend/static/js/2.dbd0b1a4.chunk.js",
+    "static/js/2.dbd0b1a4.chunk.js.map": "/icaddy-frontend/static/js/2.dbd0b1a4.chunk.js.map",
+    "index.html": "/icaddy-frontend/index.html",
+    "precache-manifest.6fd42b9330988e22388a7d7e6b0f4f0e.js": "/icaddy-frontend/precache-manifest.6fd42b9330988e22388a7d7e6b0f4f0e.js",
+    "service-worker.js": "/icaddy-frontend/service-worker.js",
+    "static/css/main.62293e9a.chunk.css.map": "/icaddy-frontend/static/css/main.62293e9a.chunk.css.map",
+    "static/js/2.dbd0b1a4.chunk.js.LICENSE.txt": "/icaddy-frontend/static/js/2.dbd0b1a4.chunk.js.LICENSE.txt",
+    "static/media/golf-flag.svg": "/icaddy-frontend/static/media/golf-flag.6c252a7a.svg",
+    "static/media/iron.svg": "/icaddy-frontend/static/media/iron.ca728989.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.c7e62304.js",
+    "static/js/2.dbd0b1a4.chunk.js",
+    "static/css/main.62293e9a.chunk.css",
+    "static/js/main.89c0db2d.chunk.js"
+  ]
+}
