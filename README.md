@@ -1,14 +1,22 @@
 # iCaddy
 
+### Purpose
+
+I recently started playing golf, and in order to determine which club I should use to hit each shot, I started writing down the distances I hit each of my clubs on average. The problem with this approach was it quickly became a hassle to continue to add up and average all of my shots.
+
 The application allows users to input a shot by selecting what club they used and what distance that they hit the ball. The application will return the average distance for that specific club.
 
-- Utilized `formik` and `yup` to handle validation and submission
-- Worked with JSON web tokens to handle user authentication
-- Utilized `axios` which would allow me to intercept requests and add the user's web token to grant user access
-- Redirect users to dashboard from the log in page if they have a valid token
-- Utilized `react-router` to manage various pages of the application and handle redirects
-- Utilized `react-select` to create and style dropdown menu
-- Worked with `scss` and `bootstrap` for styling
+### Development focus
+
+- Use `formik` to handle the state management of form data
+- Use `yup` to handle validation of form data
+- Use `axios` to handle server requests and append authorization headers
+- Use `react-router` to handle routes and navigation
+- Configure `create-react-app` to support `scss`
+- Use `scss` to standardize colors, spacing, and other common styles
+- Authorize user requests using a JSON web token stored in `localStorage`
+
+### Screenshots
 
 <div align="center">
 
