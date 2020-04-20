@@ -8,13 +8,13 @@ iCaddy is a pocket caddy that allows a user to create an account and log shots t
 
 ### Development focus
 
-- Use `formik` to handle the state management of form data and `yup` to handle validation
+- Use `formik` to handle the state management of form data and yup to handle validation
 - Create `axios` instance to standardize config and append authorization headers to all outgoing requests
 - Implement `useContext` hook to handle the stored user session throughout the application
 - Use `react-router` to handle routes and navigation
-- Configure `create-react-app` to support Sass
+- Configure create-react-app to support Sass
 - Use `Sass` to standardize colors, spacing, and other common styles
-- Authorize user requests using a JSON web token stored in `localStorage`
+- Authorize user requests using a stored JSON web token
 
 ### Screenshots
 
