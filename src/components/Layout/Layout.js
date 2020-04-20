@@ -4,7 +4,7 @@ import "./layout.scss";
 import Container from "../Container";
 import Nav from "../Nav";
 
-const Layout = props => {
+const Layout = (props) => {
   return (
     <div className="layout">
       <div className="layout__top-banner">
