@@ -1,11 +1,11 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "5954feb075decfeb537634718f1fac21",
+    "revision": "23bd8f677750fd543fbf536bf59c6424",
     "url": "/icaddy-frontend/index.html"
   },
   {
-    "revision": "7ed5e7606d7a87d2b6f3",
-    "url": "/icaddy-frontend/static/css/main.62293e9a.chunk.css"
+    "revision": "ce36c2c1116b499b67a0",
+    "url": "/icaddy-frontend/static/css/main.ad735a19.chunk.css"
   },
   {
     "revision": "daa88b0eac55961f825e",
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/icaddy-frontend/static/js/2.3e8b4acf.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "7ed5e7606d7a87d2b6f3",
-    "url": "/icaddy-frontend/static/js/main.ab8f331a.chunk.js"
+    "revision": "ce36c2c1116b499b67a0",
+    "url": "/icaddy-frontend/static/js/main.23d7b367.chunk.js"
   },
   {
     "revision": "eb22adf70bca5c0c9163",
