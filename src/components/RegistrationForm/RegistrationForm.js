@@ -9,6 +9,7 @@ import http from "../../utils/http";
 import Input from "../Input";
 import LoginRegisterLayout from "../LoginRegisterLayout";
 import TokenContext from "../../contexts/token";
+import Urls from "../../constants/urls";
 
 const RegistrationForm = (props) => {
   const { token, setToken } = useContext(TokenContext);
@@ -20,13 +21,13 @@ const RegistrationForm = (props) => {
     },
     onSubmit: async (values, { setErrors }) => {
       try {
-        const response = await http.post("/register", {
+        const response = await http.post(Urls.api.register, {
           email: values.email,
           password: values.password,
         });
         localStorage.setItem("token", response.data.token);
         setToken(response.data.token);
-        props.history.push("/");
+        props.history.push(Urls.routes.dashboard);
       } catch (err) {
         setErrors({
           confirmPassword:
@@ -54,7 +55,7 @@ const RegistrationForm = (props) => {
   });
 
   if (token) {
-    return <Redirect to="/" />;
+    return <Redirect to={Urls.routes.dashboard} />;
   }
 
   return (
@@ -95,7 +96,7 @@ const RegistrationForm = (props) => {
           Register
         </Button>
       </form>
-      <Link className="link text-center mt-3" to="/login">
+      <Link className="link text-center mt-3" to={Urls.routes.login}>
         Already have an account? Log in{" "}
       </Link>
     </LoginRegisterLayout>

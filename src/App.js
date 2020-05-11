@@ -9,6 +9,7 @@ import RegistrationForm from "./components/RegistrationForm";
 import ShotForm from "./components/ShotForm";
 import { TokenProvider } from "./contexts/token";
 import GithubLink from "./components/GithubLink";
+import Urls from "./constants/urls";
 
 const App = () => {
   return (
@@ -17,11 +18,15 @@ const App = () => {
       <TokenProvider>
         <Router>
           <Switch>
-            <ProtectedRoute exact path="/" component={Dashboard} />
-            <Route path="/register" component={RegistrationForm} />
-            <Route path="/login" component={LoginForm} />
-            <Route path="/log-shot" component={ShotForm} />
-            <Route path="/logout" component={Logout} />
+            <ProtectedRoute
+              exact
+              path={Urls.routes.dashboard}
+              component={Dashboard}
+            />
+            <Route path={Urls.routes.register} component={RegistrationForm} />
+            <Route path={Urls.routes.login} component={LoginForm} />
+            <Route path={Urls.routes.logShot} component={ShotForm} />
+            <Route path={Urls.routes.logout} component={Logout} />
           </Switch>
         </Router>
       </TokenProvider>

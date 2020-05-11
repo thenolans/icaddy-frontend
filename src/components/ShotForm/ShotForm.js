@@ -4,15 +4,16 @@ import * as Yup from "yup";
 
 import Button from "../Button";
 import Card from "../Card";
-import CLUBS from "../../constants/clubs";
 import FormError from "../FormError";
 import http from "../../utils/http";
 import Input from "../Input";
 import Layout from "../Layout";
 import Loader from "../Loader";
 import Select from "../Select";
+import CLUBS from "../../constants/clubs";
+import Urls from "../../constants/urls";
 
-const ShotForm = props => {
+const ShotForm = (props) => {
   const [isLoading, setIsLoading] = useState(false);
 
   const {
@@ -20,17 +21,17 @@ const ShotForm = props => {
     handleChange,
     handleSubmit,
     setFieldValue,
-    values
+    values,
   } = useFormik({
     initialValues: {
       club: null,
-      distance: ""
+      distance: "",
     },
-    onSubmit: async values => {
+    onSubmit: async (values) => {
       try {
-        await http.post("/shots", { ...values, club: values.club.value });
+        await http.post(Urls.api.shots, { ...values, club: values.club.value });
         setIsLoading(true);
-        props.history.push("/");
+        props.history.push(Urls.routes.dashboard);
       } catch {
       } finally {
         setIsLoading(false);
@@ -39,8 +40,8 @@ const ShotForm = props => {
     validateOnChange: false,
     validationSchema: Yup.object({
       club: Yup.mixed().required("Please select a club"),
-      distance: Yup.number().required("Please enter a distance")
-    })
+      distance: Yup.number().required("Please enter a distance"),
+    }),
   });
 
   if (isLoading)
@@ -57,7 +58,7 @@ const ShotForm = props => {
           <div className="mb-3">
             <Select
               name="club"
-              onChange={club => {
+              onChange={(club) => {
                 setFieldValue("club", club);
               }}
               options={CLUBS}

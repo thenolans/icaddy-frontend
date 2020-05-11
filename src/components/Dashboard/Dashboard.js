@@ -13,10 +13,11 @@ import iron from "../../images/iron.svg";
 import Layout from "../Layout";
 import Loader from "../Loader";
 import useAsyncState from "../../hooks/useAsyncState";
+import Urls from "../../constants/urls";
 
-const fetchShotAverages = () => http.get("/shots/aggregate");
+const fetchShotAverages = () => http.get(Urls.api.shotAggregate);
 
-const Dashboard = className => {
+const Dashboard = () => {
   const [shotAverages = {}, { isLoading }] = useAsyncState(fetchShotAverages);
   const shots = shotAverages?.data?.data;
   const hasShotsLogged = !!shots?.length && !isLoading;
@@ -43,7 +44,7 @@ const Dashboard = className => {
               </Heading>
             </div>
           </div>
-          <Button as={Link} to="/log-shot">
+          <Button as={Link} to={Urls.routes.logShot}>
             Log Shot
           </Button>
         </div>
@@ -55,7 +56,7 @@ const Dashboard = className => {
           className={cx(
             "d-flex align-items-center justify-content-between p-4 font-weight-bold",
             {
-              "border-top": index > 0
+              "border-top": index > 0,
             }
           )}
           key={shot._id}
@@ -80,7 +81,7 @@ const Dashboard = className => {
       </div>
       <Container className="pb-4 fixed-bottom">
         {hasShotsLogged && (
-          <Button as={Link} to="/log-shot" fluid shadow>
+          <Button as={Link} to={Urls.routes.logShot} fluid shadow>
             Log shot
           </Button>
         )}

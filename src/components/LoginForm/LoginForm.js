@@ -9,28 +9,29 @@ import http from "../../utils/http";
 import Input from "../Input";
 import LoginRegisterLayout from "../LoginRegisterLayout";
 import TokenContext from "../../contexts/token";
+import Urls from "../../constants/urls";
 
-const LoginForm = props => {
+const LoginForm = (props) => {
   const { token, setToken } = useContext(TokenContext);
 
   const { errors, handleChange, handleSubmit, values } = useFormik({
     initialValues: {
       email: "",
-      password: ""
+      password: "",
     },
     onSubmit: async (values, { setErrors }) => {
       try {
-        const response = await http.post("/login", {
+        const response = await http.post(Urls.api.login, {
           email: values.email,
-          password: values.password
+          password: values.password,
         });
         localStorage.setItem("token", response.data.token);
         setToken(response.data.token);
-        props.history.push("/");
+        props.history.push(Urls.routes.dashboard);
       } catch {
         setErrors({
           password:
-            "There was a problem logging you in, please verify your email and password"
+            "There was a problem logging you in, please verify your email and password",
         });
       }
     },
@@ -39,12 +40,12 @@ const LoginForm = props => {
       email: Yup.string()
         .email("Please enter a valid email address")
         .required("Email is required"),
-      password: Yup.string().required(" Password is required")
-    })
+      password: Yup.string().required(" Password is required"),
+    }),
   });
 
   if (token) {
-    return <Redirect to="/" />;
+    return <Redirect to={Urls.routes.dashboard} />;
   }
 
   return (
@@ -73,7 +74,7 @@ const LoginForm = props => {
           Log In
         </Button>
       </form>
-      <Link className="link text-center mt-3" to="/register">
+      <Link className="link text-center mt-3" to={Urls.routes.register}>
         Don't have an account? Sign up
       </Link>
     </LoginRegisterLayout>
