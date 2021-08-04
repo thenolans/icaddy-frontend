@@ -1,25 +1,29 @@
 import cx from "classnames";
 import React from "react";
 import { Link } from "react-router-dom";
+import { useQuery } from "react-query";
 
 import "./dashboard.scss";
 import Button from "../Button";
-import Card from "../Card";
 import Container from "../Container";
 import GolfFlag from "../../images/golf-flag.svg";
 import Heading from "../Heading";
-import http from "../../utils/http";
-import iron from "../../images/iron.svg";
 import Layout from "../Layout";
 import Loader from "../Loader";
-import useAsyncState from "../../hooks/useAsyncState";
 import Urls from "../../constants/urls";
-
-const fetchShotAverages = () => http.get(Urls.api.shotAggregate);
+import useHttp from "../../hooks/useHttp";
+import ShotsTable from "../ShotsTable";
 
 const Dashboard = () => {
-  const [shotAverages = {}, { isLoading }] = useAsyncState(fetchShotAverages);
-  const shots = shotAverages?.data?.data;
+  const { getShotAverages } = useHttp();
+  const { data: shots, isLoading } = useQuery(
+    ["categories"],
+    () => getShotAverages(),
+    {
+      retry: false,
+      refetchOnWindowFocus: false,
+    }
+  );
   const hasShotsLogged = !!shots?.length && !isLoading;
 
   const renderContent = () => {
@@ -31,7 +35,7 @@ const Dashboard = () => {
       );
     if (!hasShotsLogged) {
       return (
-        <div className="text-center mt-3 p-4 p-md-5">
+        <div className="text-center mt-3 py-3">
           <img
             className="img--golf-flag"
             src={GolfFlag}
@@ -50,35 +54,12 @@ const Dashboard = () => {
         </div>
       );
     }
-    return shots?.map((shot, index) => {
-      return (
-        <div
-          className={cx(
-            "d-flex align-items-center justify-content-between p-4 font-weight-bold",
-            {
-              "border-top": index > 0,
-            }
-          )}
-          key={shot._id}
-        >
-          <div className="d-flex align-items-center">
-            <img alt="golf club" className="img--iron mr-3" src={iron} />
-            <span className="text-nowrap">{shot.long_name}</span>
-          </div>
-          <div>
-            {shot.average}
-            <span className="dashboard__units"> yds</span>
-          </div>
-        </div>
-      );
-    });
+    return <ShotsTable shots={shots} />;
   };
 
   return (
     <Layout>
-      <div className="pb-4 mb-5">
-        <Card>{renderContent()}</Card>
-      </div>
+      {renderContent()}
       <Container className="pb-4 fixed-bottom">
         {hasShotsLogged && (
           <Button as={Link} to={Urls.routes.logShot} fluid shadow>

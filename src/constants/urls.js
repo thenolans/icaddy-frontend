@@ -1,15 +1,15 @@
-export default {
+const Urls = {
   routes: {
-    dashboard: "/",
-    login: "/login",
-    logShot: "/log-shot",
-    register: "/register",
-    logout: "/logout",
+    root: "/",
+    app: "/app",
+    logShot: "/app/log-shot",
+    account: "/account",
   },
   api: {
-    login: "/login",
-    register: "/register",
-    shots: "/shots",
-    shotAggregate: "/shots/aggregate",
+    shots: "/icaddy/shots",
+    shotAggregate: "/icaddy/shots/aggregate",
+    account: "/account",
   },
 };
+
+export default Urls;

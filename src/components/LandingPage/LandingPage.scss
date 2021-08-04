@@ -1,0 +1,9 @@
+@import "../../scss/variables";
+
+.landingpage {
+  &__hero {
+    background-color: $color-primary-base;
+    color: $color-gray-lighten-75;
+    padding: 48px 0;
+  }
+}

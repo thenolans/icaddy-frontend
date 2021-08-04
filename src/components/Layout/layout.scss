@@ -4,10 +4,18 @@
   &__top-banner {
     background-color: $color-primary-base;
     color: $color-gray-lighten-75;
-    height: 200px;
+    height: 280px;
   }
 
   &__content {
     margin: -100px auto;
+  }
+
+  &__nav {
+    text-align: center;
+  }
+
+  &__card {
+    min-height: 150px;
   }
 }

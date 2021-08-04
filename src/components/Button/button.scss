@@ -1,21 +1,71 @@
 @import "../../scss/variables";
 
 .button {
-  background-color: $color-primary-base;
   border: none;
-  border-radius: $spacer-2;
-  color: white;
-  transition: background-color 0.3s;
+
   line-height: 54px;
   height: 54px;
   padding: 0 $spacer;
-  min-width: 125px;
-  text-align: center;
 
-  &:hover {
+  &--primary {
+    background-color: $color-primary-base;
+    border-radius: $spacer-2;
     color: white;
-    text-decoration: none;
-    background-color: darken($color-primary-base, 10%);
+    transition: background-color 0.3s;
+    min-width: 125px;
+    text-align: center;
+
+    &:hover {
+      color: white;
+      text-decoration: none;
+      background-color: darken($color-primary-base, 10%);
+    }
+  }
+
+  &--reverse {
+    background-color: white;
+    border-radius: $spacer-2;
+    color: $color-primary-base;
+    min-width: 125px;
+    transition: background-color 0.3s;
+    text-align: center;
+
+    &:hover {
+      color: white;
+      text-decoration: none;
+      background-color: darken($color-primary-base, 10%);
+    }
+  }
+
+  &--secondary {
+    background-color: lighten($color-primary-base, 10%);
+    border-radius: $spacer-2;
+    color: white;
+    min-width: 125px;
+    transition: background-color 0.3s;
+    text-align: center;
+
+    &:hover {
+      background-color: darken($color-primary-base, 10%);
+    }
+  }
+
+  &--link {
+    background-color: transparent;
+    color: $color-primary-base;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  &--link-danger {
+    background-color: transparent;
+    color: $color-danger-base;
+
+    &:hover {
+      text-decoration: underline;
+    }
   }
 
   &--fluid {
