@@ -8,6 +8,7 @@ import Account from "./components/Account";
 import AuthLoader from "./components/AuthLoader";
 import ProtectedRoute from "./components/ProtectedRoute";
 import ShotForm from "./components/ShotForm";
+import ShotHistory from "./components/ShotHistory";
 import GithubLink from "./components/GithubLink";
 import LandingPage from "./components/LandingPage";
 import Urls from "./constants/urls";
@@ -31,6 +32,10 @@ const App = () => {
             exact
             path={Urls.routes.account}
             component={Account}
+          />
+          <ProtectedRoute
+            path={Urls.routes.shotHistory}
+            component={ShotHistory}
           />
           <ProtectedRoute
             exact

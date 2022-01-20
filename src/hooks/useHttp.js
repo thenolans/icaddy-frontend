@@ -1,4 +1,6 @@
 import { useAuth0 } from "@auth0/auth0-react";
+import { reverse } from "named-urls";
+import { stringifyUrl } from "query-string";
 
 import http from "../utils/http";
 import Urls from "../constants/urls";
@@ -37,9 +39,35 @@ export default function useHttp() {
     });
   }
 
+  async function deleteShot(shotId) {
+    const authHeader = await getAuthHeader();
+    return http.delete(reverse(Urls.api.shot, { id: shotId }), {
+      headers: authHeader,
+    });
+  }
+
+  async function getShotHistory(clubId) {
+    const authHeader = await getAuthHeader();
+    return http
+      .get(
+        stringifyUrl({
+          url: Urls.api.shots,
+          query: {
+            club: clubId,
+          },
+        }),
+        {
+          headers: authHeader,
+        }
+      )
+      .then((res) => res.data);
+  }
+
   return {
     getShotAverages,
     logShot,
     deleteAccount,
+    getShotHistory,
+    deleteShot,
   };
 }

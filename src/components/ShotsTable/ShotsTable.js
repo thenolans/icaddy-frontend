@@ -1,4 +1,7 @@
 import cx from "classnames";
+import { reverse } from "named-urls";
+import { Link } from "react-router-dom";
+import Urls from "../../constants/urls";
 
 import iron from "../../images/iron.svg";
 
@@ -7,9 +10,10 @@ export default function ShotsTable({ shots }) {
     <>
       {shots?.map((shot, index) => {
         return (
-          <div
+          <Link
+            to={reverse(Urls.routes.shotHistory, { club: shot._id })}
             className={cx(
-              "d-flex align-items-center justify-content-between font-weight-bold",
+              "d-flex align-items-center justify-content-between font-weight-bold text-dark text-decoration-none",
               {
                 "border-top": index > 0,
                 "py-3": index > 0 && index < shots.length - 1,
@@ -27,7 +31,7 @@ export default function ShotsTable({ shots }) {
               {shot.average}
               <span className="dashboard__units"> yds</span>
             </div>
-          </div>
+          </Link>
         );
       })}
     </>
